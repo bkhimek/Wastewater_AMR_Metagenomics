@@ -1,0 +1,17 @@
+ENA rows: 70 | paper IDs (S6 header): 33
+class counts: {'isolate_nanopore': 18, 'metagenome': 39, 'isolate_illumina': 13}
+metagenome platform: {'Illumina NovaSeq 6000': 39} | layout: {'PAIRED': 39}
+paper IDs found as sample_alias among metagenomes: 33 of 33
+paper IDs NOT found: []
+metagenome aliases not in the paper's 33: ['E000', 'Eblank', 'P000', 'Pblank', 'R000', 'Rblank']
+  extra: E000 SRR22752020 NA | base_count 6295492 | collection_date 2019-11-21 | desc: Con_EFF
+  extra: Eblank SRR22752018 Eblank | base_count 172744 | collection_date 2019-11-21 | desc: EFF_blank
+  extra: P000 SRR22752019 NA | base_count 10874416 | collection_date 2019-11-21 | desc: Con_SED
+  extra: Pblank SRR22752016 Pblank | base_count 564438 | collection_date 2019-11-21 | desc: POND_blank
+  extra: R000 SRR22752021 NA | base_count 4610030 | collection_date 2019-11-21 | desc: Con_INF
+  extra: Rblank SRR22752017 Rblank | base_count 235560 | collection_date 2019-11-21 | desc: INF_blank
+aliases with more than one run: {}
+33 mapped runs: total bases 369.6 Gbp | FASTQ.gz bytes 164.9 GB
+per-sample Gbp: min 9.5 max 14.3
+per-sample reads (M, ENA read_count): min 31.6 max 47.5 total 1224
+all 39 metagenome runs: 369.7 Gbp

@@ -1,0 +1,24 @@
+work/
+results/
+results_test/
+.nextflow/
+logs/
+data/
+*.fna
+*.fasta
+*.bam
+*.cram
+*.fastq
+*.fastq.gz
+# supplementary-table content (CC BY-NC-ND): keep local
+audit/phaseA/out/sample_sheet_draft.tsv
+*MOESM*
+# project documents stay in OneDrive until the end of the project
+PROJECT_STATE.md
+HANDOVER.md
+# reference databases and indexes (large, rebuilt from sources)
+refdb/
+# published Table S6 CSV: licence unconfirmed, keep local
+refdata/
+phaseA_audit/raw/
+phaseA_audit/out/sample_sheet_draft.tsv
