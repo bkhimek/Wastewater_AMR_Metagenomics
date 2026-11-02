@@ -22,3 +22,6 @@ refdb/
 refdata/
 phaseA_audit/raw/
 phaseA_audit/out/sample_sheet_draft.tsv
+docs/HANDOVER.md
+docs/PROJECT_STATE.md
+docs/LESSONS_LEARNT.md
