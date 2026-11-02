@@ -83,7 +83,7 @@ The main scripts are `06_trim_kma.sh` (the registered pipeline for one sample), 
 
 ## Reproducing the analysis
 
-The numerical results were reproduced on the author's machine. Rebuilding them from a fresh clone has **not yet been tested**; a clean-environment reproduction test is a planned milestone. The steps below are what the scripts expect.
+The numerical results were first produced on the author's machine. A partial clean-clone test (2 November 2026) then confirmed steps 1 to 4 and 6 for one development sample (`SRR22752025`): the environments installed with the versions below, the ResFinder index was byte-identical, the sample sheet was identical, and the pipeline gave identical read and fragment counts for every template. The reads and the SILVA index were reused from the original run, not rebuilt, and the scoring step (7) was not repeated. Rebuilding everything from scratch remains untested. The steps below are what the scripts expect.
 
 **Before you start**
 
