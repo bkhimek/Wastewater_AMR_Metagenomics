@@ -58,7 +58,7 @@ Two cautions. The paper's qPCR detection limit was about 50 copies/µL, which is
 | Exploratory tables: ARG per 16S under seven counting rules; detection per sample type | [ratio_16S_all_samples.tsv](registration/ratio_16S_all_samples.tsv), [detection_vs_table1.tsv](registration/detection_vs_table1.tsv) |
 | Scripts, numbered in the order they were written | [bin/](bin/) and the inventory in [docs/WORKFLOW.md](docs/WORKFLOW.md) |
 | Dataset audit: ENA run table, run classification, sample-sheet checks | [audit/phaseA/](audit/phaseA/) |
-| Scientific report and plain-language guide | links will be added when the documents are published |
+| Scientific report (Word file): methods, results, limitations | [Reproducing_ARG_metagenomics_vs_qPCR_in_wastewater_report.docx](docs/Reproducing_ARG_metagenomics_vs_qPCR_in_wastewater_report.docx) |
 
 The main scripts are `06_trim_kma.sh` (the registered pipeline for one sample), `09_score_R1.py` (the frozen scoring script) and `11` to `16` (exploratory analyses). Exploratory scripts write to their own folders and never overwrite registered outputs.
 
@@ -144,7 +144,7 @@ The SILVA index failed at 28 GB of RAM locally; the one used here was built on a
 
 - Raw reads, indexes and result folders are not committed (size); they are rebuilt from public sources.
 - The article is published under CC BY-NC-ND 4.0. The licence of the individual supplementary files has not been verified. As a precaution, their content (Tables S5 and S6 as CSV, and the sample sheet, which carries sample IDs, types and days from Table S4) is not republished here.
-- The source code is currently published without an explicit software licence. Reuse permissions have not yet been granted; please contact the author for permission.
+- The code and the report are released under the [MIT licence](LICENSE), copyright Krzysztof Gizynski. The licence covers the author's own work only; the paper and its supplementary tables remain under their own terms (see above).
 - The paper's Fig. 1c values used for comparison were read off the published graph (about ±0.1) and are approximate.
 
 ## Limits
