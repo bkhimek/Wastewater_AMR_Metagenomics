@@ -5,13 +5,19 @@
 #      -ipe -mem_mode -ef -1t1 -cge -nf -vcf   (supplement MOESM1, "as in Munk et al.")
 # Assumptions (to be stated in the registration): bbduk adapter options (ref=adapters ktrim=r k=23 mink=11 hdist=1 tbo tpe),
 # SILVA variant NR99, KMA index built with defaults from all.fsa / the DNA-converted fasta.
-# Idempotent: finished steps are skipped. Only development runs are accepted (evaluation data stay closed).
+# Idempotent: finished steps are skipped. Development runs are accepted; evaluation runs only with ALLOW_EVAL=1 (guard, see below).
 # Usage: bash bin/06_trim_kma.sh SRR22752025        (THREADS=4; KEEP_TRIMMED=1 keeps the trimmed reads)
 set -uo pipefail
 RUN=${1:?usage: 06_trim_kma.sh <run_accession>}
 REPO=${REPO:-$HOME/projects/Wastewater_AMR_Metagenomics}
 DEV="SRR22752025 SRR22752015 SRR22752048 SRR22752047 SRR22752038 SRR22752037 SRR22752014 SRR22752036 SRR22752035"
-case " $DEV " in *" $RUN "*) ;; *) echo "ERROR: $RUN is not in the development list"; exit 1;; esac
+# Guard (changed after the R1 freeze, only this check): development runs always; evaluation runs only with ALLOW_EVAL=1
+# AND when the sample sheet marks the run as split=eval. The processing steps below are unchanged.
+SHEET=${SHEET:-$REPO/phaseA_audit/out/sample_sheet_draft.tsv}
+is_eval() { awk -F'\t' -v r="$1" 'NR==1{for(i=1;i<=NF;i++)h[$i]=i; next} $h["run_accession"]==r && $h["split"]=="eval"{f=1} END{exit !f}' "$SHEET"; }
+case " $DEV " in *" $RUN "*) ;; *)
+  if [ "${ALLOW_EVAL:-0}" = 1 ] && is_eval "$RUN"; then :; else echo "ERROR: $RUN is not a development run (evaluation runs need ALLOW_EVAL=1)"; exit 1; fi;;
+esac
 THREADS=${THREADS:-4}
 export MAMBA_ROOT_PREFIX=${MAMBA_ROOT_PREFIX:-$HOME/miniconda3}
 RAW=$REPO/data/fastq_raw; TRIM=$REPO/data/trimmed; KM=$REPO/results/kma; IDX=$REPO/refdb/kma_index

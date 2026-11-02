@@ -1,0 +1,112 @@
+
+R1 scoring, set = eval, n = 18; call threshold: count >= 50
+
+sample type   day   ratio   paper    ours  posPub  TP  FN  FP  recall  medRat  in+-10%  excl16S
+R016   INF      2   0.983   15702   15437      19  17   2   0    0.89    0.98     0.47     0.10
+R021   INF      2   0.985   15189   14966      19  18   1   1    0.95    0.98     0.63     0.10
+R026   INF      2   0.982   14853   14587      19  17   2   0    0.89    0.98     0.63     0.10
+R031   INF      3   0.984   18705   18397      20  19   1   0    0.95    0.99     0.60     0.12
+R036   INF      3   0.986   15300   15093      17  17   0   1    1.00    0.99     0.65     0.11
+R041   INF      3   0.986   15711   15498      19  18   1   1    0.95    0.98     0.68     0.10
+E016   EFF      2   0.985    8461    8337      13  12   1   1    0.92    0.99     0.77     0.30
+E021   EFF      2   0.911    8019    7306      13  12   1   1    0.92    0.99     0.77     0.30
+E026   EFF      2   0.991    8779    8704      14  14   0   1    1.00    0.99     0.93     0.27
+E031   EFF      3   0.972    9049    8797      15  15   0   0    1.00    0.97     0.93     0.27
+E036   EFF      3   0.964    9279    8941      13  11   2   1    0.85    0.98     0.62     0.27
+E041   EFF      3   0.974    9067    8834      15  14   1   0    0.93    0.99     0.87     0.27
+P016   POND     2   0.983    1119    1100       2   2   0   0    1.00    1.04     0.50     0.59
+P021   POND     2   0.976    2943    2873       3   3   0   0    1.00    0.97     0.67     0.57
+P026   POND     2   0.980    1063    1042       2   2   0   0    1.00    1.05     0.50     0.58
+P031   POND     3   0.979    3587    3510       3   3   0   0    1.00    0.97     0.67     0.60
+P036   POND     3   0.964    2857    2755       3   1   2   2    0.33    0.00     0.00     0.55
+P041   POND     3   0.968    3877    3753       4   4   0   0    1.00    0.96     0.75     0.55
+
+Per-gene ratios (ours called / published):
+sample     ermB    sul1    tetA    tetQ    tetW
+R016       0.97    0.98    0.99    0.99    0.98
+R021       0.98    0.98    1.00    0.98    0.98
+R026       0.96    0.98    0.99    0.99    0.98
+R031       0.97    0.98    0.99    0.99    0.98
+R036       0.99    0.98    0.98    1.00    0.97
+R041       0.98    0.98    1.00    0.99    0.97
+E016       0.98    0.98    0.99    0.99    0.98
+E021       0.22    0.98    0.99    0.99    0.97
+E026       0.98    0.99    1.00    0.99    0.99
+E031       0.96    0.98    0.98    0.97    0.97
+E036       0.71    0.99    0.99    0.98    0.98
+E041       0.97    0.98    0.98    0.99    0.94
+P016        nan    0.98     nan     nan     nan
+P021        nan    0.98    0.97     nan     nan
+P026        nan    0.98     nan     nan     nan
+P031        nan    0.99    0.97     nan     nan
+P036        nan    0.96    0.97     nan     nan
+P041        nan    0.98    0.96     nan     nan
+
+Gene-family numerator G1 (all templates of the gene with count >= 50) / published sum of the gene:
+sample    total    ermB    sul1    tetA    tetQ    tetW
+R016      0.983    0.97    0.98    0.99    0.99    0.98
+R021      0.985    0.98    0.98    1.00    0.98    0.98
+R026      0.982    0.96    0.98    0.99    0.99    0.98
+R031      0.984    0.97    0.98    0.99    0.99    0.98
+R036      0.986    0.99    0.98    0.98    1.00    0.97
+R041      0.986    0.98    0.98    1.00    0.99    0.97
+E016      0.985    0.98    0.98    0.99    0.99    0.98
+E021      0.911    0.22    0.98    0.99    0.99    0.97
+E026      0.991    0.98    0.99    1.00    0.99    0.99
+E031      0.972    0.96    0.98    0.98    0.97    0.97
+E036      0.964    0.71    0.99    0.99    0.98    0.98
+E041      0.974    0.97    0.98    0.98    0.99    0.94
+P016      0.983     nan    0.98     nan     nan     nan
+P021      0.976     nan    0.98    0.97     nan     nan
+P026      0.980     nan    0.98     nan     nan     nan
+P031      0.979     nan    0.99    0.97     nan     nan
+P036      0.964     nan    0.96    0.97     nan     nan
+P041      0.968     nan    0.98    0.96     nan     nan
+  G1: gene-sample pairs with a published value: 70; within 0.90-1.10: 68; outside: [('E021', 'ermB', 0.21739130434782608), ('E036', 'ermB', 0.7089262613195343)]
+  G2: gene-level false positives (published 0, ours called): 0 []
+  P3  gene-level pairs in band: 68 of 70 = 0.971 (registered: >= 0.9)
+  P3b false genes: 0 (registered: <= 2)
+  P3c subtype level (reported, outside verdict): pooled recall 0.934 (registered: >= 0.9); extra positives 9 (registered: <= 18)
+
+Misses (published-positive, our count < 50) and extra positives (published 0, our count >= 50):
+sample kind    subtype                  published    ours
+R016   MISS    erm(B)_1_JN899585              136      12
+R016   MISS    erm(B)_10_U86375                73      10
+R021   MISS    erm(B)_10_U86375                66       0
+R021   EXTRA   tet(A)_4_AJ517790                0      57
+R026   MISS    erm(B)_1_JN899585              121      18
+R026   MISS    erm(B)_10_U86375                68       6
+R031   MISS    erm(B)_1_JN899585             1575      22
+R036   EXTRA   tet(Q)_4_Z21523                  0      55
+R041   MISS    erm(B)_10_U86375                88      14
+R041   EXTRA   tet(A)_4_AJ517790                0      56
+E016   EXTRA   tet(W)_5_AJ427422                0    1062
+E016   MISS    tet(W)_1_DQ060146             1091       0
+E021   EXTRA   erm(B)_20_AF109075               0      64
+E021   MISS    erm(B)_2_K00551                659       0
+E026   EXTRA   tet(A)_4_AJ517790                0      52
+E036   MISS    erm(B)_18_X66468                88      14
+E036   EXTRA   erm(B)_10_U86375                 0     548
+E036   MISS    erm(B)_2_K00551                685       0
+E041   MISS    tet(W)_4_FN396364               80       0
+P036   EXTRA   sul1_2_U12338                    0    1042
+P036   MISS    sul1_9_AY963803               1119       0
+P036   MISS    tet(A)_6_AF534183             1567       0
+P036   EXTRA   tet(A)_4_AJ517790                0    1514
+
+Counts of samples meeting each registered criterion (verdict only for set = eval, n = 18):
+  P1 total ratio in [0.93, 1.07]: 17 of 18 (registered: >= 16 of 18)
+      INF: 6 of 6 (registered: >= 5 of 6 per type)
+      EFF: 5 of 6 (registered: >= 5 of 6 per type)
+      POND: 6 of 6 (registered: >= 5 of 6 per type)
+  P2 ratio < 1.00:                 18 of 18 (registered: >= 15 of 18)
+  P3c subtype-level detail per sample type (reported, outside the verdict):
+      INF: recall 0.89 to 1.00; misses (FN) 7; extra positives (FP) 3; published positives 113
+      EFF: recall 0.85 to 1.00; misses (FN) 5; extra positives (FP) 4; published positives 83
+      POND: recall 0.33 to 1.00; misses (FN) 2; extra positives (FP) 2; published positives 17
+  P4 median ours/published in [0.9, 1.1]: 17 of 18 (registered: >= 16 of 18)
+  P5 (secondary, outside verdict) excluded-template share of 16S readCount, mean per type and day:
+      day 2: INF 0.10, EFF 0.29, POND 0.58  -> POND > EFF > INF
+      day 3: INF 0.11, EFF 0.27, POND 0.57  -> POND > EFF > INF
+
+NOTE: set = dev is for testing the script and setting thresholds. The eval run happens once, after the freeze.
